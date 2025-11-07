@@ -40,7 +40,12 @@ class Translator {
             } else if (element.tagName === 'OPTION') {
                 element.textContent = translation;
             } else {
-                element.textContent = translation;
+                // Convert line breaks to HTML breaks for better formatting
+                if (translation && translation.includes('\n')) {
+                    element.innerHTML = translation.replace(/\n/g, '<br>');
+                } else {
+                    element.textContent = translation;
+                }
             }
         });
 
@@ -104,7 +109,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Smooth scrolling for navigation links
+    const navbar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('a[href^="#"]');
+    
+    // Function to update scroll margin based on navbar height
+    function updateScrollMargin() {
+        const navbarHeight = navbar.offsetHeight;
+        document.querySelectorAll('section[id]').forEach(section => {
+            section.style.scrollMarginTop = `${navbarHeight}px`;
+        });
+    }
+    
+    // Update scroll margin on load and resize
+    updateScrollMargin();
+    window.addEventListener('resize', updateScrollMargin);
+    
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
@@ -112,30 +131,47 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                // Calculate navbar height dynamically
+                const navbarHeight = navbar.offsetHeight;
+                const offsetTop = targetSection.offsetTop - navbarHeight;
+                
                 window.scrollTo({
-                    top: offsetTop,
+                    top: Math.max(0, offsetTop), // Ensure we don't scroll to negative values
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function () {
+    // Navbar scroll effect - transparent when on hero, solid when reaching about section
+    const aboutSection = document.getElementById('about');
+    
+    function updateNavbarStyle() {
+        if (!aboutSection) return;
+        
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 100) {
-            navbar.classList.add('navbar-scrolled');
+        const aboutSectionTop = aboutSection.offsetTop;
+        const navbarHeight = navbar.offsetHeight;
+        // Change navbar style when reaching about section (with some offset for smooth transition)
+        const threshold = aboutSectionTop - navbarHeight - 50;
+        
+        if (scrollTop >= threshold) {
+            navbar.classList.remove('navbar-transparent');
+            navbar.classList.add('navbar-solid');
         } else {
-            navbar.classList.remove('navbar-scrolled');
+            navbar.classList.remove('navbar-solid');
+            navbar.classList.add('navbar-transparent');
         }
-
-        lastScrollTop = scrollTop;
-    });
+    }
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateNavbarStyle);
+    
+    // Update on page load
+    updateNavbarStyle();
+    
+    // Update on resize (in case section positions change)
+    window.addEventListener('resize', updateNavbarStyle);
 
     // Contact form handling
     const contactForm = document.getElementById('contactForm');

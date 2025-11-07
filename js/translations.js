@@ -19,8 +19,8 @@ const translations = {
 
         // Hero section
         hero: {
-            title: "Soluciones en materiales compuestos",
-            subtitle: "Desde 1981, desarrollamos soluciones integrales en transporte, almacenamiento y procesamiento de fluidos, así como en infraestructura para energía eléctrica, garantizando calidad y confiabilidad en cada producto y proceso.",
+            titleMain: "PETROPLAST",
+            subtitle: "SOLUCIONES EN MATERIALES COMPUESTOS",
             cta1: "Contactar Ahora",
             cta2: "Nuestros Servicios"
         },
@@ -28,8 +28,9 @@ const translations = {
         // About section
         about: {
             title: "Sobre Petroplast",
-            subtitle: "Somos una empresa argentina con más de dos décadas de experiencia en el sector de plásticos y construcción.",
-            description: "Nos especializamos en la fabricación y comercialización de productos plásticos de alta calidad, tuberías para diversos usos industriales y trabajos de construcción especializados.",
+            paragraph1: "Somos una empresa argentina dedicada al desarrollo y fabricación de productos en PRFV (plástico reforzado con fibra de vidrio), orientados a proyectos de infraestructura, energía y transporte de fluidos.",
+            paragraph2: "Nuestra planta industrial, ubicada en Mendoza, está equipada para el diseño, fabricación y ensamble de postes, tubos y estructuras en PRFV, mediante procesos como laminado manual, filament winding y mecanizado de precisión.",
+            paragraph3: "Nuestro equipo combina experiencia y conocimiento técnico, comprometido con la mejora continua, la responsabilidad en cada proyecto y la construcción de relaciones de confianza a largo plazo.",
             quality: "Calidad Garantizada",
             qualityDesc: "Productos certificados",
             team: "Equipo Experto",
@@ -176,8 +177,8 @@ const translations = {
 
         // Hero section
         hero: {
-            title: "Composite Materials Solutions",
-            subtitle: "Since 1981, we have been developing comprehensive solutions in fluid transport, storage and processing, as well as infrastructure for electrical energy, guaranteeing quality and reliability in every product and process.",
+            titleMain: "PETROPLAST",
+            subtitle: "SOLUTIONS IN COMPOSITE MATERIALS",
             cta1: "Contact Now",
             cta2: "Our Services"
         },
@@ -185,8 +186,9 @@ const translations = {
         // About section
         about: {
             title: "About Petroplast",
-            subtitle: "We are an Argentine company with more than two decades of experience in plastics and construction sector.",
-            description: "We specialize in manufacturing and marketing high-quality plastic products, tubing for various industrial uses and specialized construction work.",
+            paragraph1: "We are an Argentine company dedicated to the development and manufacturing of FRP (fiberglass reinforced plastic) products, focused on infrastructure, energy and fluid transport projects.",
+            paragraph2: "Our industrial plant, located in Mendoza, is equipped for the design, manufacturing and assembly of FRP poles, tubes and structures, through processes such as manual lamination, filament winding and precision machining.",
+            paragraph3: "Our team combines experience and technical knowledge, committed to continuous improvement, responsibility in each project and building long-term trust relationships.",
             quality: "Guaranteed Quality",
             qualityDesc: "Certified products",
             team: "Expert Team",
