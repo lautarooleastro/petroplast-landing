@@ -50,31 +50,43 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#home">
-                <i class="fas fa-industry me-2"></i>Petroplast
+            <a class="navbar-brand" href="#home">
+                <img src="images/icons/logo.jpeg" alt="Petroplast" class="navbar-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto me-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Inicio</a>
+                        <a class="nav-link" href="#home" data-translate="nav.home">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Nosotros</a>
+                        <a class="nav-link" href="#about" data-translate="nav.about">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Servicios</a>
+                        <a class="nav-link" href="#services" data-translate="nav.services">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Proyectos</a>
+                        <a class="nav-link" href="#projects" data-translate="nav.projects">Proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contacto</a>
+                        <a class="nav-link" href="#contact" data-translate="nav.contact">Contacto</a>
                     </li>
                 </ul>
+                <!-- Language Switcher -->
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-globe me-1"></i>
+                        <span id="current-lang">ES</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang="es">🇦🇷 Español</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang="en">🇺🇸 English</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -83,15 +95,21 @@
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container h-100 d-flex align-items-center">
-            <div class="row w-100">
-                <div class="col-lg-8">
-                    <div class="hero-content text-white" data-aos="fade-up" data-aos-duration="1000">
-                        <h1 class="display-4 fw-bold mb-4">Especialistas en Plásticos y Construcción</h1>
-                        <p class="lead mb-4">Más de 20 años de experiencia en la industria de plásticos, tuberías y
-                            trabajos de construcción en Argentina. Soluciones profesionales para sus proyectos.</p>
+            <div class="row g-0">
+                <div class="col-lg-8 col-12">
+                    <div class="hero-content text-white px-3 px-md-0" data-aos="fade-up" data-aos-duration="1000">
+                        <h1 class="display-4 fw-bold mb-4" data-translate="hero.title">Soluciones en materiales
+                            compuestos</h1>
+                        <p class="lead mb-4" data-translate="hero.subtitle">Desde 1981, desarrollamos soluciones
+                            integrales en transporte, almacenamiento y procesamiento de fluidos, así como en
+                            infraestructura para energía eléctrica, garantizando calidad y confiabilidad en cada
+                            producto y proceso.</p>
                         <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-warning btn-lg me-3">Contactar Ahora</a>
-                            <a href="#services" class="btn btn-outline-light btn-lg">Nuestros Servicios</a>
+                            <a href="#contact" class="btn btn-warning btn-lg me-md-3 mb-2 mb-md-0"
+                                data-translate="hero.cta1">Contactar
+                                Ahora</a>
+                            <a href="#services" class="btn btn-outline-light btn-lg" data-translate="hero.cta2">Nuestros
+                                Servicios</a>
                         </div>
                     </div>
                 </div>
@@ -102,42 +120,46 @@
     <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h2 class="display-5 fw-bold text-primary mb-4">Sobre Petroplast</h2>
-                    <p class="lead">Somos una empresa argentina con más de dos décadas de experiencia en el sector de
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6 order-lg-1 order-2" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold text-primary mb-4" data-translate="about.title">Sobre Petroplast</h2>
+                    <p class="lead" data-translate="about.subtitle">Somos una empresa argentina con más de dos décadas
+                        de experiencia en el sector de
                         plásticos y construcción.</p>
-                    <p>Nos especializamos en la fabricación y comercialización de productos plásticos de alta calidad,
+                    <p data-translate="about.description">Nos especializamos en la fabricación y comercialización de
+                        productos plásticos de alta calidad,
                         tuberías para diversos usos industriales y trabajos de construcción especializados.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
+                    <div class="row g-3 mt-4">
+                        <div class="col-md-6 col-12">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                <div class="bg-primary text-white rounded-circle p-3 me-3 flex-shrink-0">
                                     <i class="fas fa-award"></i>
                                 </div>
                                 <div>
-                                    <h5 class="mb-1">Calidad Garantizada</h5>
-                                    <small class="text-muted">Productos certificados</small>
+                                    <h5 class="mb-1" data-translate="about.quality">Calidad Garantizada</h5>
+                                    <small class="text-muted" data-translate="about.qualityDesc">Productos
+                                        certificados</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-12">
                             <div class="d-flex align-items-center mb-3">
-                                <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                <div class="bg-primary text-white rounded-circle p-3 me-3 flex-shrink-0">
                                     <i class="fas fa-users"></i>
                                 </div>
                                 <div>
-                                    <h5 class="mb-1">Equipo Experto</h5>
-                                    <small class="text-muted">Profesionales calificados</small>
+                                    <h5 class="mb-1" data-translate="about.team">Equipo Experto</h5>
+                                    <small class="text-muted" data-translate="about.teamDesc">Profesionales
+                                        calificados</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6 order-lg-2 order-1" data-aos="fade-left">
                     <div class="about-image">
                         <img src="images/hero/about-petroplast.jpg" alt="Equipo Petroplast"
-                            class="img-fluid rounded shadow">
+                            class="img-fluid rounded shadow w-100">
                     </div>
                 </div>
             </div>
@@ -149,8 +171,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up">Nuestros Servicios</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Ofrecemos soluciones integrales en
+                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up" data-translate="services.title">
+                        Nuestros Servicios</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200" data-translate="services.subtitle">Ofrecemos
+                        soluciones integrales en
                         plásticos, tuberías y construcción para satisfacer las necesidades de nuestros clientes.</p>
                 </div>
             </div>
@@ -162,13 +186,18 @@
                                 style="width: 80px; height: 80px;">
                                 <i class="fas fa-cogs fa-2x"></i>
                             </div>
-                            <h4 class="card-title">Fabricación de Plásticos</h4>
-                            <p class="card-text">Producción de productos plásticos de alta calidad para diversos
+                            <h4 class="card-title" data-translate="services.plastic.title">Fabricación de Plásticos</h4>
+                            <p class="card-text" data-translate="services.plastic.description">Producción de productos
+                                plásticos de alta calidad para diversos
                                 sectores industriales y comerciales.</p>
                             <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-success me-2"></i>PVC de alta calidad</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Polietileno</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Productos personalizados</li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.plastic.features.0">PVC de alta calidad</span></li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.plastic.features.1">Polietileno</span></li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.plastic.features.2">Productos personalizados</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -180,13 +209,18 @@
                                 style="width: 80px; height: 80px;">
                                 <i class="fas fa-pipe fa-2x"></i>
                             </div>
-                            <h4 class="card-title">Sistemas de Tuberías</h4>
-                            <p class="card-text">Instalación y mantenimiento de sistemas de tuberías para uso
+                            <h4 class="card-title" data-translate="services.tubing.title">Sistemas de Tuberías</h4>
+                            <p class="card-text" data-translate="services.tubing.description">Instalación y
+                                mantenimiento de sistemas de tuberías para uso
                                 industrial, comercial y residencial.</p>
                             <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-success me-2"></i>Tuberías industriales</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Sistemas de drenaje</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Mantenimiento especializado</li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.tubing.features.0">Tuberías industriales</span></li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.tubing.features.1">Sistemas de drenaje</span></li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.tubing.features.2">Mantenimiento especializado</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -198,13 +232,20 @@
                                 style="width: 80px; height: 80px;">
                                 <i class="fas fa-hammer fa-2x"></i>
                             </div>
-                            <h4 class="card-title">Trabajos de Construcción</h4>
-                            <p class="card-text">Servicios de construcción especializados con enfoque en soluciones
+                            <h4 class="card-title" data-translate="services.construction.title">Trabajos de Construcción
+                            </h4>
+                            <p class="card-text" data-translate="services.construction.description">Servicios de
+                                construcción especializados con enfoque en soluciones
                                 plásticas y sistemas modernos.</p>
                             <ul class="list-unstyled text-start">
-                                <li><i class="fas fa-check text-success me-2"></i>Construcción industrial</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Proyectos comerciales</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Asesoría técnica</li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.construction.features.0">Construcción industrial</span>
+                                </li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.construction.features.1">Proyectos comerciales</span>
+                                </li>
+                                <li><i class="fas fa-check text-success me-2"></i><span
+                                        data-translate="services.construction.features.2">Asesoría técnica</span></li>
                             </ul>
                         </div>
                     </div>
@@ -218,8 +259,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up">Proyectos Destacados</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="200">Conozca algunos de nuestros trabajos más
+                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up" data-translate="projects.title">
+                        Proyectos Destacados</h2>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200" data-translate="projects.subtitle">Conozca
+                        algunos de nuestros trabajos más
                         importantes y la calidad que nos caracteriza.</p>
                 </div>
             </div>
@@ -228,12 +271,15 @@
                     <div class="card border-0 shadow-sm">
                         <img src="images/projects/project-1.jpg" class="card-img-top" alt="Proyecto Industrial">
                         <div class="card-body">
-                            <h5 class="card-title">Sistema Industrial Completo</h5>
-                            <p class="card-text">Instalación de sistema de tuberías para planta industrial en Buenos
+                            <h5 class="card-title" data-translate="projects.project1.title">Sistema Industrial Completo
+                            </h5>
+                            <p class="card-text" data-translate="projects.project1.description">Instalación de sistema
+                                de tuberías para planta industrial en Buenos
                                 Aires.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">2023</small>
-                                <span class="badge bg-primary">Industrial</span>
+                                <small class="text-muted" data-translate="projects.project1.year">2023</small>
+                                <span class="badge bg-primary"
+                                    data-translate="projects.project1.category">Industrial</span>
                             </div>
                         </div>
                     </div>
@@ -242,12 +288,14 @@
                     <div class="card border-0 shadow-sm">
                         <img src="images/projects/project-2.jpg" class="card-img-top" alt="Proyecto Comercial">
                         <div class="card-body">
-                            <h5 class="card-title">Centro Comercial</h5>
-                            <p class="card-text">Trabajos de construcción y sistemas plásticos para centro comercial.
+                            <h5 class="card-title" data-translate="projects.project2.title">Centro Comercial</h5>
+                            <p class="card-text" data-translate="projects.project2.description">Trabajos de construcción
+                                y sistemas plásticos para centro comercial.
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">2023</small>
-                                <span class="badge bg-success">Comercial</span>
+                                <small class="text-muted" data-translate="projects.project2.year">2023</small>
+                                <span class="badge bg-success"
+                                    data-translate="projects.project2.category">Comercial</span>
                             </div>
                         </div>
                     </div>
@@ -256,12 +304,14 @@
                     <div class="card border-0 shadow-sm">
                         <img src="images/projects/project-3.jpg" class="card-img-top" alt="Proyecto Residencial">
                         <div class="card-body">
-                            <h5 class="card-title">Complejo Residencial</h5>
-                            <p class="card-text">Sistema de drenaje y tuberías para complejo residencial de 200
+                            <h5 class="card-title" data-translate="projects.project3.title">Complejo Residencial</h5>
+                            <p class="card-text" data-translate="projects.project3.description">Sistema de drenaje y
+                                tuberías para complejo residencial de 200
                                 unidades.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">2022</small>
-                                <span class="badge bg-info">Residencial</span>
+                                <small class="text-muted" data-translate="projects.project3.year">2022</small>
+                                <span class="badge bg-info"
+                                    data-translate="projects.project3.category">Residencial</span>
                             </div>
                         </div>
                     </div>
@@ -275,7 +325,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up">¿Por qué elegir Petroplast?</h2>
+                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up" data-translate="whyChoose.title">
+                        ¿Por qué elegir Petroplast?</h2>
                 </div>
             </div>
             <div class="row g-4">
@@ -285,8 +336,9 @@
                             style="width: 80px; height: 80px;">
                             <i class="fas fa-clock fa-2x"></i>
                         </div>
-                        <h5>20+ Años de Experiencia</h5>
-                        <p class="text-muted">Más de dos décadas brindando soluciones de calidad</p>
+                        <h5 data-translate="whyChoose.experience.title">20+ Años de Experiencia</h5>
+                        <p class="text-muted" data-translate="whyChoose.experience.description">Más de dos décadas
+                            brindando soluciones de calidad</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -295,8 +347,9 @@
                             style="width: 80px; height: 80px;">
                             <i class="fas fa-shield-alt fa-2x"></i>
                         </div>
-                        <h5>Calidad Garantizada</h5>
-                        <p class="text-muted">Productos certificados y procesos controlados</p>
+                        <h5 data-translate="whyChoose.quality.title">Calidad Garantizada</h5>
+                        <p class="text-muted" data-translate="whyChoose.quality.description">Productos certificados y
+                            procesos controlados</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -305,8 +358,9 @@
                             style="width: 80px; height: 80px;">
                             <i class="fas fa-map-marker-alt fa-2x"></i>
                         </div>
-                        <h5>Presencia Local</h5>
-                        <p class="text-muted">Conocimiento del mercado argentino</p>
+                        <h5 data-translate="whyChoose.local.title">Presencia Local</h5>
+                        <p class="text-muted" data-translate="whyChoose.local.description">Conocimiento del mercado
+                            argentino</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
@@ -315,8 +369,9 @@
                             style="width: 80px; height: 80px;">
                             <i class="fas fa-handshake fa-2x"></i>
                         </div>
-                        <h5>Atención Personalizada</h5>
-                        <p class="text-muted">Servicio al cliente de excelencia</p>
+                        <h5 data-translate="whyChoose.service.title">Atención Personalizada</h5>
+                        <p class="text-muted" data-translate="whyChoose.service.description">Servicio al cliente de
+                            excelencia</p>
                     </div>
                 </div>
             </div>
@@ -326,47 +381,62 @@
     <!-- Contact Section -->
     <section id="contact" class="py-5">
         <div class="container">
-            <div class="row">
+            <div class="row g-0">
                 <div class="col-lg-8 mx-auto text-center mb-5">
-                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up">Contacto</h2>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="200">¿Tiene un proyecto en mente? Contáctenos
+                    <h2 class="display-5 fw-bold text-primary mb-4" data-aos="fade-up" data-translate="contact.title">
+                        Contacto</h2>
+                    <p class="lead px-3 px-md-0" data-aos="fade-up" data-aos-delay="200"
+                        data-translate="contact.subtitle">¿Tiene un
+                        proyecto en mente? Contáctenos
                         para una consulta gratuita.</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-0">
                 <div class="col-lg-8 mx-auto">
                     <div class="card border-0 shadow">
-                        <div class="card-body p-5">
+                        <div class="card-body p-3 p-md-5">
                             <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                                 <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="name" class="form-label">Nombre Completo</label>
+                                    <div class="col-md-6 col-12">
+                                        <label for="name" class="form-label" data-translate="contact.form.name">Nombre
+                                            Completo</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="email" class="form-label">Email</label>
+                                    <div class="col-md-6 col-12">
+                                        <label for="email" class="form-label"
+                                            data-translate="contact.form.email">Email</label>
                                         <input type="email" class="form-control" id="email" name="email" required>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="phone" class="form-label">Teléfono</label>
+                                    <div class="col-md-6 col-12">
+                                        <label for="phone" class="form-label"
+                                            data-translate="contact.form.phone">Teléfono</label>
                                         <input type="tel" class="form-control" id="phone" name="phone">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="company" class="form-label">Empresa</label>
+                                    <div class="col-md-6 col-12">
+                                        <label for="company" class="form-label"
+                                            data-translate="contact.form.company">Empresa</label>
                                         <input type="text" class="form-control" id="company" name="company">
                                     </div>
                                     <div class="col-12">
-                                        <label for="service" class="form-label">Servicio de Interés</label>
+                                        <label for="service" class="form-label"
+                                            data-translate="contact.form.service">Servicio de Interés</label>
                                         <select class="form-select" id="service" name="service">
-                                            <option value="">Seleccionar servicio</option>
-                                            <option value="plasticos">Fabricación de Plásticos</option>
-                                            <option value="tuberias">Sistemas de Tuberías</option>
-                                            <option value="construccion">Trabajos de Construcción</option>
-                                            <option value="consulta">Consulta General</option>
+                                            <option value="" data-translate="contact.form.servicePlaceholder">
+                                                Seleccionar servicio</option>
+                                            <option value="plasticos" data-translate="contact.form.services.plasticos">
+                                                Fabricación de Plásticos</option>
+                                            <option value="tuberias" data-translate="contact.form.services.tuberias">
+                                                Sistemas de Tuberías</option>
+                                            <option value="construccion"
+                                                data-translate="contact.form.services.construccion">Trabajos de
+                                                Construcción</option>
+                                            <option value="consulta" data-translate="contact.form.services.consulta">
+                                                Consulta General</option>
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <label for="message" class="form-label">Mensaje</label>
+                                        <label for="message" class="form-label"
+                                            data-translate="contact.form.message">Mensaje</label>
                                         <textarea class="form-control" id="message" name="message" rows="5"
                                             required></textarea>
                                     </div>
@@ -374,12 +444,15 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="privacy" required>
                                             <label class="form-check-label" for="privacy">
-                                                Acepto la <a href="#" class="text-primary">política de privacidad</a>
+                                                <span data-translate="contact.form.privacy">Acepto la</span> <a href="#"
+                                                    class="text-primary"
+                                                    data-translate="contact.form.privacyLink">política de privacidad</a>
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100"
+                                            data-translate="contact.form.submit">
                                             <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
                                         </button>
                                     </div>
@@ -395,12 +468,13 @@
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 col-12">
                     <h5 class="fw-bold mb-3">
                         <i class="fas fa-industry me-2"></i>Petroplast
                     </h5>
-                    <p class="text-light">Especialistas en plásticos, tuberías y construcción en Argentina. Más de 20
+                    <p class="text-light" data-translate="footer.description">Especialistas en plásticos, tuberías y
+                        construcción en Argentina. Más de 20
                         años de experiencia brindando soluciones de calidad.</p>
                     <div class="social-links">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
@@ -408,17 +482,19 @@
                         <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="fw-bold mb-3">Servicios</h6>
+                <div class="col-lg-2 col-md-6 col-12">
+                    <h6 class="fw-bold mb-3" data-translate="footer.services">Servicios</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#services" class="text-light text-decoration-none">Fabricación de Plásticos</a>
+                        <li class="mb-2"><a href="#services" class="text-light text-decoration-none">Fabricación de
+                                Plásticos</a></li>
+                        <li class="mb-2"><a href="#services" class="text-light text-decoration-none">Sistemas de
+                                Tuberías</a></li>
+                        <li class="mb-2"><a href="#services" class="text-light text-decoration-none">Construcción</a>
                         </li>
-                        <li><a href="#services" class="text-light text-decoration-none">Sistemas de Tuberías</a></li>
-                        <li><a href="#services" class="text-light text-decoration-none">Construcción</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="fw-bold mb-3">Contacto</h6>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h6 class="fw-bold mb-3" data-translate="footer.contact">Contacto</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2">
                             <i class="fas fa-map-marker-alt me-2"></i>
@@ -434,23 +510,30 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 mb-4">
-                    <h6 class="fw-bold mb-3">Horarios</h6>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <h6 class="fw-bold mb-3" data-translate="footer.hours">Horarios</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-1">Lunes - Viernes: 8:00 - 18:00</li>
-                        <li class="mb-1">Sábados: 8:00 - 12:00</li>
-                        <li class="mb-1">Domingos: Cerrado</li>
+                        <li class="mb-1" data-translate="footer.schedule.weekdays">Lunes - Viernes: 8:00 - 18:00</li>
+                        <li class="mb-1" data-translate="footer.schedule.saturday">Sábados: 8:00 - 12:00</li>
+                        <li class="mb-1" data-translate="footer.schedule.sunday">Domingos: Cerrado</li>
                     </ul>
                 </div>
             </div>
             <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Petroplast. Todos los derechos reservados.</p>
+            <div class="row align-items-center g-3">
+                <div class="col-md-6 col-12 text-center text-md-start">
+                    <a href="https://lautarooleastro.github.io" class="text-light text-decoration-none d-block mb-2">
+                        &copy; 2025 - Lautaro Oleastro.
+                    </a>
+                    <p class="mb-0">
+                        <span data-translate="footer.copyright">Todos los derechos reservados.</span>
+                    </p>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-light text-decoration-none me-3">Política de Privacidad</a>
-                    <a href="#" class="text-light text-decoration-none">Términos de Uso</a>
+                <div class="col-md-6 col-12 text-center text-md-end">
+                    <a href="#" class="text-light text-decoration-none me-3" data-translate="footer.privacy">Política de
+                        Privacidad</a>
+                    <a href="#" class="text-light text-decoration-none" data-translate="footer.terms">Términos de
+                        Uso</a>
                 </div>
             </div>
         </div>
@@ -463,6 +546,9 @@
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Translations -->
+    <script src="js/translations.js"></script>
 
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>

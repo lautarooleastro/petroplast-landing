@@ -1,6 +1,101 @@
 // Petroplast Landing Page - Main JavaScript
 
+// Translator Class
+class Translator {
+    constructor() {
+        this.currentLang = localStorage.getItem('language') || 'es';
+        this.translations = {};
+        this.init();
+    }
+
+    async init() {
+        await this.loadTranslations();
+        this.applyTranslations();
+        this.setupLanguageSwitcher();
+    }
+
+    async loadTranslations() {
+        // Use the translations object from translations.js
+        this.translations = translations;
+    }
+
+    translate(key) {
+        const keys = key.split('.');
+        let value = this.translations[this.currentLang];
+
+        for (const k of keys) {
+            value = value?.[k];
+        }
+
+        return value || key;
+    }
+
+    applyTranslations() {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            const translation = this.translate(key);
+
+            if (element.tagName === 'INPUT' && element.type === 'submit') {
+                element.value = translation;
+            } else if (element.tagName === 'OPTION') {
+                element.textContent = translation;
+            } else {
+                element.textContent = translation;
+            }
+        });
+
+        // Update meta tags
+        this.updateMetaTags();
+    }
+
+    updateMetaTags() {
+        document.documentElement.lang = this.currentLang;
+        document.title = this.translate('meta.title');
+
+        // Update meta description
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.content = this.translate('meta.description');
+        }
+
+        // Update meta keywords
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) {
+            metaKeywords.content = this.translate('meta.keywords');
+        }
+    }
+
+    switchLanguage(lang) {
+        this.currentLang = lang;
+        localStorage.setItem('language', lang);
+        this.applyTranslations();
+        this.updateLanguageSwitcher();
+    }
+
+    setupLanguageSwitcher() {
+        document.querySelectorAll('[data-lang]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.switchLanguage(button.dataset.lang);
+            });
+        });
+    }
+
+    updateLanguageSwitcher() {
+        const currentLangElement = document.getElementById('current-lang');
+        if (currentLangElement) {
+            currentLangElement.textContent = this.currentLang.toUpperCase();
+        }
+    }
+}
+
+// Initialize translator
+let translator;
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize translator
+    translator = new Translator();
+
     // Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 1000,
@@ -58,13 +153,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+            submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>${translator.translate('contact.form.sending')}`;
             submitBtn.disabled = true;
 
             // Simulate form submission (replace with actual Formspree endpoint)
             setTimeout(() => {
                 // Show success message
-                showAlert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+                showAlert(translator.translate('contact.form.success'), 'success');
 
                 // Reset form
                 this.reset();
