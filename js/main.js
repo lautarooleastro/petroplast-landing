@@ -108,9 +108,25 @@ document.addEventListener('DOMContentLoaded', function () {
         offset: 100
     });
 
+    // Animate navbar links on page load
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach((link, index) => {
+        setTimeout(() => {
+            link.classList.add('nav-link-loaded');
+        }, 300 + (index * 100)); // Stagger animation: 300ms base + 100ms per item
+    });
+
+    // Animate language switcher button
+    const languageDropdown = document.querySelector('.dropdown');
+    if (languageDropdown) {
+        setTimeout(() => {
+            languageDropdown.classList.add('dropdown-loaded');
+        }, 300 + (navLinks.length * 100)); // Appears after all nav links
+    }
+
     // Smooth scrolling for navigation links
     const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
     
     // Function to update scroll margin based on navbar height
     function updateScrollMargin() {
@@ -124,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateScrollMargin();
     window.addEventListener('resize', updateScrollMargin);
     
-    navLinks.forEach(link => {
+    scrollLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');

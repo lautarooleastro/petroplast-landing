@@ -39,58 +39,76 @@ const translations = {
 
         // Services section
         services: {
-            title: "Nuestros Servicios",
-            subtitle: "Ofrecemos soluciones integrales en plásticos, tuberías y construcción para satisfacer las necesidades de nuestros clientes.",
+            title: "Nuestros productos",
+            subtitle: "Fabricados bajo procedimientos normalizados, con controles internos que garantizan la homogeneidad y trazabilidad de los productos, priorizando la seguridad, calidad y cumplimiento técnico en cada entrega.",
             plastic: {
-                title: "Fabricación de Plásticos",
-                description: "Producción de productos plásticos de alta calidad para diversos sectores industriales y comerciales.",
+                title: "Tuberías",
+                description: "Hechos de PRFV con diámetros desde 50 mm hasta 2,5 m y presiones hasta 40 kg/cm², ideales para infraestructura hidráulica y sistemas de transporte de fluidos.",
+                category: "IRAM 13432",
                 features: [
-                    "PVC de alta calidad",
-                    "Polietileno",
-                    "Productos personalizados"
+                    "Acueductos y sistemas de riego",
+                    "Desagües cloacales e industriales",
+                    "Redes contra incendio y tratamiento de efluentes"
                 ]
             },
             tubing: {
-                title: "Sistemas de Tuberías",
-                description: "Instalación y mantenimiento de sistemas de tuberías para uso industrial, comercial y residencial.",
+                title: "Tanques",
+                description: "Cilíndricos con capacidades superiores a 200 m³, diseñados para almacenamiento seguro de diversos productos industriales y alimenticios.",
+                category: "ISO 9001:2025",
                 features: [
-                    "Tuberías industriales",
-                    "Sistemas de drenaje",
-                    "Mantenimiento especializado"
+                    "Almacenamiento de productos químicos",
+                    "Almacenamiento alimentario (leche y derivados)",
+                    "Combustibles y productos industriales"
                 ]
             },
             construction: {
-                title: "Trabajos de Construcción",
-                description: "Servicios de construcción especializados con enfoque en soluciones plásticas y sistemas modernos.",
+                title: "Postes",
+                description: "Hechos de PRFV para infraestructura eléctrica y señalización, diseñados para soportar redes de distribución de energía y sistemas de tránsito.",
+                category: "IRAM 13901",
                 features: [
-                    "Construcción industrial",
-                    "Proyectos comerciales",
-                    "Asesoría técnica"
+                    "Redes de media y baja tensión",
+                    "Semáforos y señalización",
+                    "Resistencia y durabilidad superior"
                 ]
             }
         },
 
         // Projects section
         projects: {
-            title: "Proyectos Destacados",
-            subtitle: "Conozca algunos de nuestros trabajos más importantes y la calidad que nos caracteriza.",
+            title: "Nuestros productos",
+            subtitle: "Fabricados bajo procedimientos normalizados, con controles internos que garantizan la homogeneidad y trazabilidad de los productos, priorizando la seguridad, calidad y cumplimiento técnico en cada entrega.",
             project1: {
-                title: "Sistema Industrial Completo",
-                description: "Instalación de sistema de tuberías para planta industrial en Buenos Aires.",
-                year: "2023",
-                category: "Industrial"
+                title: "Tuberías",
+                description: "Hechos de PRFV con diámetros desde 50 mm hasta 2,5 m y presiones hasta 40 kg/cm², ideales para infraestructura hidráulica y sistemas de transporte de fluidos.",
+                year: "Acueductos y sistemas de riego",
+                category: "IRAM 13432",
+                features: [
+                    "Acueductos y sistemas de riego",
+                    "Desagües cloacales e industriales",
+                    "Redes contra incendio y tratamiento de efluentes"
+                ]
             },
             project2: {
-                title: "Centro Comercial",
-                description: "Trabajos de construcción y sistemas plásticos para centro comercial.",
-                year: "2023",
-                category: "Comercial"
+                title: "Tanques",
+                description: "Cilíndricos con capacidades superiores a 200 m³, diseñados para almacenamiento seguro de diversos productos industriales y alimenticios.",
+                year: "Almacenamiento seguro",
+                category: "ISO 9001:2025",
+                features: [
+                    "Almacenamiento de productos químicos",
+                    "Almacenamiento alimentario (leche y derivados)",
+                    "Combustibles y productos industriales"
+                ]
             },
             project3: {
-                title: "Complejo Residencial",
-                description: "Sistema de drenaje y tuberías para complejo residencial de 200 unidades.",
-                year: "2022",
-                category: "Residencial"
+                title: "Postes",
+                description: "Hechos de PRFV para infraestructura eléctrica y señalización, diseñados para soportar redes de distribución de energía y sistemas de tránsito.",
+                year: "Infraestructura eléctrica",
+                category: "IRAM 13901",
+                features: [
+                    "Redes de media y baja tensión",
+                    "Semáforos y señalización",
+                    "Resistencia y durabilidad superior"
+                ]
             }
         },
 
@@ -197,58 +215,76 @@ const translations = {
 
         // Services section
         services: {
-            title: "Our Services",
-            subtitle: "We offer comprehensive solutions in plastics, tubing and construction to meet our clients' needs.",
+            title: "Our Products",
+            subtitle: "Manufactured under standardized procedures, with internal controls that guarantee product homogeneity and traceability, prioritizing safety, quality and technical compliance in each delivery.",
             plastic: {
-                title: "Plastic Manufacturing",
-                description: "Production of high-quality plastic products for various industrial and commercial sectors.",
+                title: "Pipes",
+                description: "Made of FRP with diameters from 50 mm to 2.5 m and pressures up to 40 kg/cm², ideal for hydraulic infrastructure and fluid transport systems.",
+                category: "IRAM 13432",
                 features: [
-                    "High-quality PVC",
-                    "Polyethylene",
-                    "Custom products"
+                    "Aqueducts and irrigation systems",
+                    "Sewer and industrial drainage",
+                    "Fire networks and effluent treatment"
                 ]
             },
             tubing: {
-                title: "Tubing Systems",
-                description: "Installation and maintenance of tubing systems for industrial, commercial and residential use.",
+                title: "Tanks",
+                description: "Cylindrical with capacities exceeding 200 m³, designed for safe storage of various industrial and food products.",
+                category: "ISO 9001:2025",
                 features: [
-                    "Industrial tubing",
-                    "Drainage systems",
-                    "Specialized maintenance"
+                    "Chemical product storage",
+                    "Food storage (milk and derivatives)",
+                    "Fuels and industrial products"
                 ]
             },
             construction: {
-                title: "Construction Work",
-                description: "Specialized construction services with focus on plastic solutions and modern systems.",
+                title: "Poles",
+                description: "Made of FRP for electrical infrastructure and signaling, designed to support energy distribution networks and traffic systems.",
+                category: "IRAM 13901",
                 features: [
-                    "Industrial construction",
-                    "Commercial projects",
-                    "Technical consulting"
+                    "Medium and low voltage networks",
+                    "Traffic lights and signaling",
+                    "Superior resistance and durability"
                 ]
             }
         },
 
         // Projects section
         projects: {
-            title: "Featured Projects",
-            subtitle: "Learn about some of our most important works and the quality that characterizes us.",
+            title: "Our Products",
+            subtitle: "Manufactured under standardized procedures, with internal controls that guarantee product homogeneity and traceability, prioritizing safety, quality and technical compliance in each delivery.",
             project1: {
-                title: "Complete Industrial System",
-                description: "Installation of tubing system for industrial plant in Buenos Aires.",
-                year: "2023",
-                category: "Industrial"
+                title: "Pipes",
+                description: "Made of FRP with diameters from 50 mm to 2.5 m and pressures up to 40 kg/cm², ideal for hydraulic infrastructure and fluid transport systems.",
+                year: "Aqueducts and irrigation systems",
+                category: "IRAM 13432",
+                features: [
+                    "Aqueducts and irrigation systems",
+                    "Sewer and industrial drainage",
+                    "Fire networks and effluent treatment"
+                ]
             },
             project2: {
-                title: "Shopping Center",
-                description: "Construction work and plastic systems for shopping center.",
-                year: "2023",
-                category: "Commercial"
+                title: "Tanks",
+                description: "Cylindrical with capacities exceeding 200 m³, designed for safe storage of various industrial and food products.",
+                year: "Safe storage",
+                category: "ISO 9001:2025",
+                features: [
+                    "Chemical product storage",
+                    "Food storage (milk and derivatives)",
+                    "Fuels and industrial products"
+                ]
             },
             project3: {
-                title: "Residential Complex",
-                description: "Drainage and tubing system for 200-unit residential complex.",
-                year: "2022",
-                category: "Residential"
+                title: "Poles",
+                description: "Made of FRP for electrical infrastructure and signaling, designed to support energy distribution networks and traffic systems.",
+                year: "Electrical infrastructure",
+                category: "IRAM 13901",
+                features: [
+                    "Medium and low voltage networks",
+                    "Traffic lights and signaling",
+                    "Superior resistance and durability"
+                ]
             }
         },
 
