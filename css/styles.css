@@ -59,11 +59,16 @@ body {
 
 /* Navigation Styles */
 .navbar {
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.3s ease;
     box-shadow: var(--shadow);
     max-width: 100%;
     z-index: 1030;
     /* Ensure navbar is above other content */
+}
+
+/* Navbar hidden state (when scrolling in hero) */
+.navbar-hidden {
+    transform: translateY(-100%);
 }
 
 /* Navbar transparent state (initial) */
@@ -147,10 +152,10 @@ body {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Logo invisible when navbar is transparent */
+/* Logo visible when navbar is transparent (at the very top) */
 .navbar-transparent .navbar-logo {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Logo visible when navbar is solid */

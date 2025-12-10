@@ -40,12 +40,8 @@ class Translator {
             } else if (element.tagName === 'OPTION') {
                 element.textContent = translation;
             } else {
-                // Convert line breaks to HTML breaks for better formatting
-                if (translation && translation.includes('\n')) {
-                    element.innerHTML = translation.replace(/\n/g, '<br>');
-                } else {
-                    element.textContent = translation;
-                }
+                // Use innerHTML to allow HTML tags in translations
+                element.innerHTML = translation;
             }
         });
 
@@ -127,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Smooth scrolling for navigation links
     const navbar = document.querySelector('.navbar');
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
-    
+
     // Function to update scroll margin based on navbar height
     function updateScrollMargin() {
         const navbarHeight = navbar.offsetHeight;
@@ -135,11 +131,11 @@ document.addEventListener('DOMContentLoaded', function () {
             section.style.scrollMarginTop = `${navbarHeight}px`;
         });
     }
-    
+
     // Update scroll margin on load and resize
     updateScrollMargin();
     window.addEventListener('resize', updateScrollMargin);
-    
+
     scrollLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
@@ -150,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Calculate navbar height dynamically
                 const navbarHeight = navbar.offsetHeight;
                 const offsetTop = targetSection.offsetTop - navbarHeight;
-                
+
                 window.scrollTo({
                     top: Math.max(0, offsetTop), // Ensure we don't scroll to negative values
                     behavior: 'smooth'
@@ -159,33 +155,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Navbar scroll effect - transparent when on hero, solid when reaching about section
+    // Navbar scroll effect - transparent at top, hidden while scrolling in hero, solid when reaching about section
     const aboutSection = document.getElementById('about');
-    
+    const heroSection = document.getElementById('home');
+
     function updateNavbarStyle() {
-        if (!aboutSection) return;
-        
+        if (!aboutSection || !heroSection) return;
+
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const aboutSectionTop = aboutSection.offsetTop;
         const navbarHeight = navbar.offsetHeight;
-        // Change navbar style when reaching about section (with some offset for smooth transition)
-        const threshold = aboutSectionTop - navbarHeight - 50;
-        
-        if (scrollTop >= threshold) {
-            navbar.classList.remove('navbar-transparent');
+
+        // Threshold to start showing solid navbar (when entering about section)
+        const aboutThreshold = aboutSectionTop - navbarHeight - 50;
+
+        // Small scroll threshold to hide navbar (starts hiding after scrolling a bit)
+        const hideThreshold = 50;
+
+        if (scrollTop >= aboutThreshold) {
+            // In about section or beyond: show solid navbar
+            navbar.classList.remove('navbar-transparent', 'navbar-hidden');
             navbar.classList.add('navbar-solid');
+        } else if (scrollTop > hideThreshold) {
+            // Scrolling in hero section: hide navbar
+            navbar.classList.remove('navbar-transparent', 'navbar-solid');
+            navbar.classList.add('navbar-hidden');
         } else {
-            navbar.classList.remove('navbar-solid');
+            // At the very top: show transparent navbar
+            navbar.classList.remove('navbar-solid', 'navbar-hidden');
             navbar.classList.add('navbar-transparent');
         }
     }
-    
+
     // Update on scroll
     window.addEventListener('scroll', updateNavbarStyle);
-    
+
     // Update on page load
     updateNavbarStyle();
-    
+
     // Update on resize (in case section positions change)
     window.addEventListener('resize', updateNavbarStyle);
 
@@ -290,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         carouselInner.style.height = img.offsetHeight + 'px';
                     }
                 } else {
-                    img.addEventListener('load', function() {
+                    img.addEventListener('load', function () {
                         const carouselInner = carousel.querySelector('.carousel-inner');
                         if (carouselInner) {
                             carouselInner.style.height = img.offsetHeight + 'px';
@@ -306,20 +313,20 @@ document.addEventListener('DOMContentLoaded', function () {
     modals.forEach(modalId => {
         const modal = document.getElementById(modalId);
         if (modal) {
-            modal.addEventListener('shown.bs.modal', function() {
+            modal.addEventListener('shown.bs.modal', function () {
                 const carousel = modal.querySelector('.carousel');
                 if (carousel) {
                     setCarouselHeight(carousel);
-                    
+
                     // Update height on slide change
-                    carousel.addEventListener('slid.bs.carousel', function() {
+                    carousel.addEventListener('slid.bs.carousel', function () {
                         setCarouselHeight(carousel);
                     });
                 }
             });
 
             // Also set height when modal is about to show
-            modal.addEventListener('show.bs.modal', function() {
+            modal.addEventListener('show.bs.modal', function () {
                 const carousel = modal.querySelector('.carousel');
                 if (carousel) {
                     setTimeout(() => {
