@@ -276,6 +276,59 @@ document.addEventListener('DOMContentLoaded', function () {
         const element = event.target;
         element.classList.add('loaded');
     });
+
+    // Fix carousel transitions in modals
+    function setCarouselHeight(carousel) {
+        const activeItem = carousel.querySelector('.carousel-item.active');
+        if (activeItem) {
+            const img = activeItem.querySelector('img');
+            if (img) {
+                // Wait for image to load
+                if (img.complete) {
+                    const carouselInner = carousel.querySelector('.carousel-inner');
+                    if (carouselInner) {
+                        carouselInner.style.height = img.offsetHeight + 'px';
+                    }
+                } else {
+                    img.addEventListener('load', function() {
+                        const carouselInner = carousel.querySelector('.carousel-inner');
+                        if (carouselInner) {
+                            carouselInner.style.height = img.offsetHeight + 'px';
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    // Initialize carousel heights when modals are shown
+    const modals = ['modalTuberias', 'modalTanques', 'modalPostes'];
+    modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.addEventListener('shown.bs.modal', function() {
+                const carousel = modal.querySelector('.carousel');
+                if (carousel) {
+                    setCarouselHeight(carousel);
+                    
+                    // Update height on slide change
+                    carousel.addEventListener('slid.bs.carousel', function() {
+                        setCarouselHeight(carousel);
+                    });
+                }
+            });
+
+            // Also set height when modal is about to show
+            modal.addEventListener('show.bs.modal', function() {
+                const carousel = modal.querySelector('.carousel');
+                if (carousel) {
+                    setTimeout(() => {
+                        setCarouselHeight(carousel);
+                    }, 50);
+                }
+            });
+        }
+    });
 });
 
 // Utility Functions
