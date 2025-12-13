@@ -1,24 +1,9 @@
 ---
 deployment:
   tasks:
-    # Definir la ruta de despliegue (ajusta 'tuusuario' con tu usuario de cPanel)
     - export DEPLOYPATH=/home/petropla/public_html/
-    
-    # Copiar archivo HTML principal
     - /bin/cp index.html $DEPLOYPATH
-    
-    # Copiar directorio CSS
     - /bin/cp -R css $DEPLOYPATH
-    
-    # Copiar directorio JavaScript
     - /bin/cp -R js $DEPLOYPATH
-    
-    # Copiar directorio de imágenes
     - /bin/cp -R images $DEPLOYPATH
-    
-    # Copiar directorio de fuentes (si tiene archivos)
     - /bin/cp -R fonts $DEPLOYPATH
-    
-    # Mensaje de confirmación (opcional)
-    - echo "Despliegue de petroplast landing page completado exitosamente"
-
