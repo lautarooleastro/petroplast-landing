@@ -29,9 +29,9 @@ A professional landing page for Petroplast, an Argentine company specialized in 
 ## Design System & Style Guide
 
 ### Color Palette
-- **Primary**: Industrial Blue (#1e40af) - Trust, professionalism
+- **Primary**: Industrial Blue (#002748) - Trust, professionalism
 - **Secondary**: Steel Gray (#64748b) - Industrial, modern
-- **Accent**: Orange (#f97316) - Energy, construction
+- **Accent**: Yellow-Green (#eee741) - Energy, construction
 - **Neutral**: White (#ffffff), Light Gray (#f8fafc), Dark Gray (#334155)
 
 ### Typography

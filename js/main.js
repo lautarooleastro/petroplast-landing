@@ -1,6 +1,102 @@
 // Petroplast Landing Page - Main JavaScript
 
+// Translator Class
+class Translator {
+    constructor() {
+        this.currentLang = localStorage.getItem('language') || 'es';
+        this.translations = {};
+        this.init();
+    }
+
+    async init() {
+        await this.loadTranslations();
+        this.applyTranslations();
+        this.setupLanguageSwitcher();
+    }
+
+    async loadTranslations() {
+        // Use the translations object from translations.js
+        this.translations = translations;
+    }
+
+    translate(key) {
+        const keys = key.split('.');
+        let value = this.translations[this.currentLang];
+
+        for (const k of keys) {
+            value = value?.[k];
+        }
+
+        return value || key;
+    }
+
+    applyTranslations() {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            const translation = this.translate(key);
+
+            if (element.tagName === 'INPUT' && element.type === 'submit') {
+                element.value = translation;
+            } else if (element.tagName === 'OPTION') {
+                element.textContent = translation;
+            } else {
+                // Use innerHTML to allow HTML tags in translations
+                element.innerHTML = translation;
+            }
+        });
+
+        // Update meta tags
+        this.updateMetaTags();
+    }
+
+    updateMetaTags() {
+        document.documentElement.lang = this.currentLang;
+        document.title = this.translate('meta.title');
+
+        // Update meta description
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.content = this.translate('meta.description');
+        }
+
+        // Update meta keywords
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (metaKeywords) {
+            metaKeywords.content = this.translate('meta.keywords');
+        }
+    }
+
+    switchLanguage(lang) {
+        this.currentLang = lang;
+        localStorage.setItem('language', lang);
+        this.applyTranslations();
+        this.updateLanguageSwitcher();
+    }
+
+    setupLanguageSwitcher() {
+        document.querySelectorAll('[data-lang]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.switchLanguage(button.dataset.lang);
+            });
+        });
+    }
+
+    updateLanguageSwitcher() {
+        const currentLangElement = document.getElementById('current-lang');
+        if (currentLangElement) {
+            currentLangElement.textContent = this.currentLang.toUpperCase();
+        }
+    }
+}
+
+// Initialize translator
+let translator;
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize translator
+    translator = new Translator();
+
     // Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 1000,
@@ -8,39 +104,97 @@ document.addEventListener('DOMContentLoaded', function () {
         offset: 100
     });
 
+    // Animate navbar links on page load
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach((link, index) => {
+        setTimeout(() => {
+            link.classList.add('nav-link-loaded');
+        }, 300 + (index * 100)); // Stagger animation: 300ms base + 100ms per item
+    });
+
+    // Animate language switcher button
+    const languageDropdown = document.querySelector('.dropdown');
+    if (languageDropdown) {
+        setTimeout(() => {
+            languageDropdown.classList.add('dropdown-loaded');
+        }, 300 + (navLinks.length * 100)); // Appears after all nav links
+    }
+
     // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
+    const navbar = document.querySelector('.navbar');
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+
+    // Function to update scroll margin based on navbar height
+    function updateScrollMargin() {
+        const navbarHeight = navbar.offsetHeight;
+        document.querySelectorAll('section[id]').forEach(section => {
+            section.style.scrollMarginTop = `${navbarHeight}px`;
+        });
+    }
+
+    // Update scroll margin on load and resize
+    updateScrollMargin();
+    window.addEventListener('resize', updateScrollMargin);
+
+    scrollLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                // Calculate navbar height dynamically
+                const navbarHeight = navbar.offsetHeight;
+                const offsetTop = targetSection.offsetTop - navbarHeight;
+
                 window.scrollTo({
-                    top: offsetTop,
+                    top: Math.max(0, offsetTop), // Ensure we don't scroll to negative values
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
+    // Navbar scroll effect - transparent at top, hidden while scrolling in hero, solid when reaching about section
+    const aboutSection = document.getElementById('about');
+    const heroSection = document.getElementById('home');
 
-    window.addEventListener('scroll', function () {
+    function updateNavbarStyle() {
+        if (!aboutSection || !heroSection) return;
+
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const aboutSectionTop = aboutSection.offsetTop;
+        const navbarHeight = navbar.offsetHeight;
 
-        if (scrollTop > 100) {
-            navbar.classList.add('navbar-scrolled');
+        // Threshold to start showing solid navbar (when entering about section)
+        const aboutThreshold = aboutSectionTop - navbarHeight - 50;
+
+        // Small scroll threshold to hide navbar (starts hiding after scrolling a bit)
+        const hideThreshold = 50;
+
+        if (scrollTop >= aboutThreshold) {
+            // In about section or beyond: show solid navbar
+            navbar.classList.remove('navbar-transparent', 'navbar-hidden');
+            navbar.classList.add('navbar-solid');
+        } else if (scrollTop > hideThreshold) {
+            // Scrolling in hero section: hide navbar
+            navbar.classList.remove('navbar-transparent', 'navbar-solid');
+            navbar.classList.add('navbar-hidden');
         } else {
-            navbar.classList.remove('navbar-scrolled');
+            // At the very top: show transparent navbar
+            navbar.classList.remove('navbar-solid', 'navbar-hidden');
+            navbar.classList.add('navbar-transparent');
         }
+    }
 
-        lastScrollTop = scrollTop;
-    });
+    // Update on scroll
+    window.addEventListener('scroll', updateNavbarStyle);
+
+    // Update on page load
+    updateNavbarStyle();
+
+    // Update on resize (in case section positions change)
+    window.addEventListener('resize', updateNavbarStyle);
 
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
@@ -58,13 +212,13 @@ document.addEventListener('DOMContentLoaded', function () {
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+            submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>${translator.translate('contact.form.sending')}`;
             submitBtn.disabled = true;
 
             // Simulate form submission (replace with actual Formspree endpoint)
             setTimeout(() => {
                 // Show success message
-                showAlert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+                showAlert(translator.translate('contact.form.success'), 'success');
 
                 // Reset form
                 this.reset();
@@ -128,6 +282,59 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('aos:in', function () {
         const element = event.target;
         element.classList.add('loaded');
+    });
+
+    // Fix carousel transitions in modals
+    function setCarouselHeight(carousel) {
+        const activeItem = carousel.querySelector('.carousel-item.active');
+        if (activeItem) {
+            const img = activeItem.querySelector('img');
+            if (img) {
+                // Wait for image to load
+                if (img.complete) {
+                    const carouselInner = carousel.querySelector('.carousel-inner');
+                    if (carouselInner) {
+                        carouselInner.style.height = img.offsetHeight + 'px';
+                    }
+                } else {
+                    img.addEventListener('load', function () {
+                        const carouselInner = carousel.querySelector('.carousel-inner');
+                        if (carouselInner) {
+                            carouselInner.style.height = img.offsetHeight + 'px';
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    // Initialize carousel heights when modals are shown
+    const modals = ['modalTuberias', 'modalTanques', 'modalPostes'];
+    modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.addEventListener('shown.bs.modal', function () {
+                const carousel = modal.querySelector('.carousel');
+                if (carousel) {
+                    setCarouselHeight(carousel);
+
+                    // Update height on slide change
+                    carousel.addEventListener('slid.bs.carousel', function () {
+                        setCarouselHeight(carousel);
+                    });
+                }
+            });
+
+            // Also set height when modal is about to show
+            modal.addEventListener('show.bs.modal', function () {
+                const carousel = modal.querySelector('.carousel');
+                if (carousel) {
+                    setTimeout(() => {
+                        setCarouselHeight(carousel);
+                    }, 50);
+                }
+            });
+        }
     });
 });
 
