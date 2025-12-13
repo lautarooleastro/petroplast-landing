@@ -65,3 +65,9 @@ build/
 
 # Local development
 .cache/
+DEPLOY-CPANEL.md
+DEPLOY-DIAGRAMS.md
+DEPLOY-QUICKSTART.md
+plan.md
+prompt.md
+documentation.md
