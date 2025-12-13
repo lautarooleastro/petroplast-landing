@@ -129,9 +129,9 @@ petroplast-landing/
 ### Colores
 ```css
 :root {
-    --primary-color: #1e40af;    /* Azul principal */
+    --primary-color: #002748;    /* Azul principal */
     --secondary-color: #64748b;   /* Gris secundario */
-    --accent-color: #f97316;      /* Naranja de acento */
+    --accent-color: #eee741;      /* Amarillo verdoso de acento */
     --light-bg: #f8fafc;         /* Fondo claro */
     --dark-text: #334155;        /* Texto oscuro */
 }
