@@ -18,8 +18,8 @@ const translations = {
 
         // Hero section
         hero: {
-            titleMain: "PETROPLAST<sup>®</sup>",
-            subtitle: "SOLUCIONES EN MATERIALES COMPUESTOS",
+            titleMain: "INGENIERIA EN PRFV",
+            subtitle: "PETROPLAST<sup>®</sup>",
             cta1: "Contactar Ahora",
             cta2: "Nuestros Servicios"
         },
@@ -193,8 +193,8 @@ const translations = {
 
         // Hero section
         hero: {
-            titleMain: "PETROPLAST<sup>®</sup>",
-            subtitle: "SOLUTIONS IN COMPOSITE MATERIALS",
+            titleMain: "FRP ENGINEERING",
+            subtitle: "PETROPLAST<sup>®</sup>",
             cta1: "Contact Now",
             cta2: "Our Services"
         },

@@ -66,6 +66,25 @@ body {
     /* Ensure navbar is above other content */
 }
 
+.navbar .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
 /* Navbar hidden state (when scrolling in hero) */
 .navbar-hidden {
     transform: translateY(-100%);
@@ -239,6 +258,8 @@ body {
     z-index: 2;
     width: 100%;
     padding-top: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     text-align: left;
 }
 
@@ -315,6 +336,8 @@ body {
 
     .hero-title-section {
         padding-top: 3rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
     }
 
     .btn-chevron {
@@ -572,6 +595,8 @@ footer a:hover {
 
     .hero-title-section {
         padding-top: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
         text-align: center;
     }
 
@@ -638,6 +663,8 @@ footer a:hover {
 
     .hero-title-section {
         padding-top: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
         text-align: center;
     }
 
@@ -698,6 +725,8 @@ footer a:hover {
     .hero-title-section {
         text-align: center;
         padding-top: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     .hero-title-section h1 {
@@ -765,6 +794,8 @@ footer a:hover {
     .hero-title-section {
         text-align: center;
         padding-top: 0;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
 
     .hero-title-section h1 {
@@ -832,6 +863,8 @@ footer a:hover {
     .hero-title-section {
         text-align: center;
         padding-top: 0;
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
     }
 
     .hero-title-section h1 {
