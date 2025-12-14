@@ -71,3 +71,9 @@ DEPLOY-QUICKSTART.md
 plan.md
 prompt.md
 documentation.md
+
+# Firebase
+.firebase/
+*-debug.log
+firebase-debug*.log
+ui-debug.log

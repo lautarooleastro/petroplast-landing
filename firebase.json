@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "petroplast-landing-page-9b93c",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
